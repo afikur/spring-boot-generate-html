@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="/vendors/tinymce/js/tinymce/tinymce.min.js"></script>
+    <style>
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<form th:action="@{/}" method="post">
+    <div class="container">
+        <textarea name="content" id="content"></textarea>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+<script>
+    tinymce.init({
+        selector: "#content",
+        theme: "modern",
+        skin: "light",
+        height: 450,
+        menubar: false,
+        plugins : "pagebreak,save,insertdatetime,preview,searchreplace,contextmenu,paste,directionality,noneditable,visualchars,nonbreaking,code,image,media,link,fullscreen",
+        toolbar: "styleselect | undo redo | cut copy paste searchreplace | fontsizeselect | fontselect | pagebreak insertdatetime | alignleft aligncenter alignright alignjustify | bold italic underline strikethrough subscript superscript | bullist numlist outdent indent | spellchecker |  preview code | image media | link | unlink | fullscreen",
+    });
+</script>
+</body>
+</html>
